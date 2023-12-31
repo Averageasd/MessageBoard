@@ -15,7 +15,9 @@ router.get('/', async (req, res) => {
         console.log(err);
     }
 });
-
+router.get("/new", (req,res)=>{
+   res.render('form.ejs');
+});
 router.post('/new', async (req, res) => {
     const message = {author: req.body.name, message: req.body.message, datePosted: new Date()};
     messageModel.insertMessage(message)
