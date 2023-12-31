@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+</head>
+<body>
+<h1>Hello</h1>
+<form action="/new" method="post">
+    <label for="name">
+        Name
+        <input id="name" type="text" name="name"/>
+    </label>
+
+    <label for="message">
+        Message
+        <input id="message" type="text" name="message"/>
+    </label>
+    <button type="submit">submit</button>
+    <section class="message-board">
+        <ul>
+            <% messages.forEach((msg)=> { %>
+                <li>
+                    <h2><%= msg.name %></h2>
+                    <p><%= msg.message %></p>
+                    <p><%= msg.date.toLocaleDateString() %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </section>
+
+
+</form>
+</body>
+</html>
