@@ -4,33 +4,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Message board</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Hello</h1>
-<form action="/new" method="post">
-    <label for="name">
-        Name
-        <input id="name" type="text" name="name"/>
-    </label>
-
-    <label for="message">
-        Message
-        <input id="message" type="text" name="message"/>
-    </label>
-    <button type="submit">submit</button>
-    <section class="message-board">
-        <ul>
+<section class="main">
+    <h1 class="title">Message board</h1>
+    <section class="section message-board-section">
+        <ul class="board">
             <% messages.forEach((msg)=> { %>
-                <li>
-                    <h2><%= msg.name %></h2>
+                <li class="message-item">
+                    <h3><%= msg.author %></h3>
                     <p><%= msg.message %></p>
-                    <p><%= msg.date.toLocaleDateString() %></p>
+                    <p><%= msg.datePosted.toLocaleDateString() %></p>
                 </li>
             <% }) %>
         </ul>
     </section>
+    <section class="section form-section">
+        <form action="/new" method="post">
+            <label for="name">
+            </label>
+            <input id="name" type="text" name="name" required/>
 
+            <label for="message">
+            </label>
+            <input id="message" type="text" name="message" required/>
+            <button type="submit">submit</button>
+        </form>
+    </section>
 
-</form>
+</section>
+
 </body>
 </html>

@@ -2,6 +2,14 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const PORT = 3000;
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+const mongoDB = "mongodb+srv://nguyenhuynh:PhoneQuery9497+@atlascluster.zengp2a.mongodb.net/message_db?retryWrites=true&w=majority";
+
+main().catch((err) => console.log(err));
+async function main() {
+    await mongoose.connect(mongoDB);
+}
 // parse json data
 app.use(express.json());
 
